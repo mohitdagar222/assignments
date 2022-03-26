@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     response = RestClient.get 'https://jsonplaceholder.typicode.com/posts'
     render json: response.body, status: response.code
   end
+  
   def create
     all_params ={
       "title": "#{params[:title]}",
