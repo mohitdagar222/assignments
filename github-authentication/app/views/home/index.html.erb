@@ -1,7 +1,8 @@
 <center>
 <h1>Home Page</h1>
 <% if session[:user_id].present? %>
-<b><%= user = User.find_by(id: session[:user_id]).name %></b>
+<%= image_tag "#{@current_user.image_url}", style: 'height:50px;width:80px;margin-bottom:0px;border-radius:50%;' %>
+<b><%= @current_user.name %></b>
 <%= link_to "Sign Out", "/user/logout"%>
 <% else %>
 <%= link_to 'Sign up with Github', '/auth/github' %>
