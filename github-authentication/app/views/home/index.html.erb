@@ -1,4 +1,9 @@
 <center>
 <h1>Home Page</h1>
+<% if session[:user_id].present? %>
+<b><%= user = User.find_by(id: session[:user_id]).name %></b>
+<%= link_to "Sign Out", "/user/logout"%>
+<% else %>
 <%= link_to 'Sign up with Github', '/auth/github' %>
+<% end %>
 </center>
