@@ -7,6 +7,8 @@ Rails.application.configure do
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  ENV['GITHUB_KEY'] = "fb2adae7f7eabf45af2b"
+  ENV['GITHUB_SECRET'] = "ac561e0dd2a3ed2caa33960892359b0c79b9f6b8"
 
   # Do not eager load code on boot.
   config.eager_load = false
