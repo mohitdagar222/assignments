@@ -4,7 +4,7 @@ class User < ApplicationRecord
         where(uid: auth['uid']).first_or_initialize do |user|
             user.provider = auth['provider']
             user.uid = auth['uid']
-            user.name = auth.info.nickname
+            user.name = auth.extra.access_token.params["screen_name"]
             user.profile_image = auth.info.image
             user.token = auth.credentials.token
             user.secret = auth.credentials.secret
