@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'rest-client'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
