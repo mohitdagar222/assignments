@@ -1,7 +1,7 @@
 <center>
 <h1>Home Page</h1>
 <% if @current_user.present? %>
-<b><%= @current_user.uid %></b>
+<b><%= @current_user.name %></b>
 <%= link_to "Sign Out", "/user/logout"%> <br/> <br/>
 <% @tweets["data"].each do |d|%>
         <span style = "color:red; font-size:20px;">* <%= d["text"].to_s %> </span> <br/> <br/>
