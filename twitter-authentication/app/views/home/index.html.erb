@@ -1,13 +1,15 @@
 <center>
 <h1>Home Page</h1>
 <% if @current_user.present? %>
-<b><%= @current_user.name %></b>
-<%= link_to "Sign Out", "/user/logout"%> <br/> <br/>
-<% @tweets["data"].each do |d|%>
+  <b><%= @current_user.name %></b>
+  <%= link_to "Sign Out", "/user/logout"%> <br/> <br/>
+  <% if @tweets["data"].present? %>
+    <% @tweets["data"].each do |d|%>
         <span style = "color:red; font-size:20px;">* <%= d["text"].to_s %> </span> <br/> <br/>
-<% end %>
+    <% end %>
+  <% end %>
 <% else %>
-<%= link_to 'Sign up with Github', '/auth/twitter' %>
+  <%= link_to 'Sign up with Github', '/auth/twitter' %>
 <% end %>
 </center>
 
