@@ -1,0 +1,14 @@
+<h3><%= link_to "Register", "/admins/signup" %> | <%= link_to "Login", "/" %></h3> 
+<h2> <%= flash[:message] %> <% flash[:message] = nil %></h2>
+<div style = "margin-bottom: 160px;">
+<%= form_with(url: "/admins/login", method: :get, id: "form1") do |form| %>
+ <h2>Login </h2>
+   <%= form.label(:name, "User Name:", class: :label) %>
+   <%= form.text_field(:name, id: :admin_name) %><br><br clear="all">
+    <%= form.label(:password, "Password:", class: :label) %>
+    <%= form.password_field(:password, id: :admin_password) %><br><br><br clear="all">
+   <%= form.submit("Login", :class => "btn-success") %>
+<% end %>
+</div>
+<br>
+ 

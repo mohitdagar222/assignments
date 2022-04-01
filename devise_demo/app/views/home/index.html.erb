@@ -1,0 +1,41 @@
+<% if current_user.present? %>
+
+
+
+<h1><center>All Products</center></h1>
+
+<%= form_with(url: "/", method: :get) do |form| %>
+    <%= form.label(:product_name, "Search Product with name:", class: :label) %>
+    <%= form.text_field(:product_name, id: :search_field) %><br><br >
+
+  <%= form.label(:customRange2, "Search Product with price:", class: :label) %>
+  <%= form.range_field :price, value: 0, :min => 0, :max => 1000, :class => "form-range", :id => "customRange2" %> <br><br>
+    <%= form.submit("Search", :class => "btn btn-success") %>
+<% end %>
+
+<table style="margin-left:auto; margin-right:auto;margin-top:50px;">
+  <tr> 
+    <th>Name</th>
+    <th>Price</th>
+    <th>Company</th>
+  </tr>
+<% @products.each do |p| %> 
+  <tr>
+  <td><%= p.name %></td>
+  <td><%= p.price %></td> 
+  <td><%= p.admin.name %></td> 
+  
+  </tr>
+<% end %> 
+</table>
+<%= will_paginate @products %>
+
+<% else %>
+
+<center>
+<img src="https://images.unsplash.com/photo-1553531889-56cc480ac5cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" style = "width:70%;margin-top:-50px;height:450px;" id="image">
+<h2 >
+<%= link_to "Find Products", new_user_session_path %>  </h2>
+</center>
+<% end %>
+
