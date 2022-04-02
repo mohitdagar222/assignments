@@ -18,4 +18,6 @@ class HomeController < ApplicationController
 
   def checkout
   end
+
+  
 end
