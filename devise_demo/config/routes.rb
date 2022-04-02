@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post "/admins" => "admin#create" 
 
   get "/cart" => "home#cart"
+  get ":id/checkout" => "home#checkout"
   
   get "/products" => "products#index"
   get "/products/create" => "products#new"
