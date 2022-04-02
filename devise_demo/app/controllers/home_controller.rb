@@ -12,4 +12,9 @@ class HomeController < ApplicationController
       @products = Product.where("price < ? and name ilike ?", "#{params[:price]}", "#{params[:product_name]}%").paginate(:page => params[:page])
     end
   end
+
+  def cart 
+
+
+  end
 end
