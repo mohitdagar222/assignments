@@ -3,6 +3,7 @@ class Product < ApplicationRecord
     self.per_page = 3          
     validates :name, :price, :admin_id, presence: true
     before_save :format
+    has_many :cartproducts
   
     private
   

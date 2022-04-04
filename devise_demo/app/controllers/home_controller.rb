@@ -11,6 +11,11 @@ class HomeController < ApplicationController
     else
       @products = Product.where("price < ? and name ilike ?", "#{params[:price]}", "#{params[:product_name]}%").paginate(:page => params[:page])
     end
+
+    if current_user.present? && !current_user.cart.present?  
+      Cart.create(user_id: current_user.id)
+    end
+
   end
 
   def cart 
