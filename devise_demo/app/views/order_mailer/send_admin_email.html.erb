@@ -1,0 +1,9 @@
+<h1>New Order Added by <%= @user.email %></h1>
+
+<p>
+  <% @products.each do |product| %>
+    <p><%= product.product.name %> - <%= product.product.price %>
+  <% end %>
+</p>
+
+<h1>Thank You</h1>

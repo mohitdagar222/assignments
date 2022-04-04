@@ -10,4 +10,6 @@ class WelcomeMailer < ApplicationMailer
 
     mail to: @user.email, subject: "Thanks You For Signing Up"
   end
+
 end
+

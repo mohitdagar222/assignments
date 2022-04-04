@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_03_110807) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,15 +22,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_110807) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cart_products", force: :cascade do |t|
-    t.bigint "cart_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
-    t.index ["product_id"], name: "index_cart_products_on_product_id"
   end
 
   create_table "cartproducts", force: :cascade do |t|
@@ -55,18 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_110807) do
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["admin_id"], name: "index_products_on_admin_id"
-  end
-
-  create_table "shippings", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.text "address"
-    t.string "country"
-    t.string "state"
-    t.string "zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,8 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_110807) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cart_products", "carts"
-  add_foreign_key "cart_products", "products"
   add_foreign_key "cartproducts", "carts"
   add_foreign_key "cartproducts", "products"
   add_foreign_key "carts", "users"

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'cartproducts/index'
   get 'products/edit'
   get 'products/index'
+
   get 'products/new'
   get 'admin/index'
   root "home#index"
