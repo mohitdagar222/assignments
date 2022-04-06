@@ -1,0 +1,7 @@
+<center>
+<%= form_with model: [@artist, @song, @lyric] do |form| %>
+ <h2> <%= form.label(:content, "enter lyrics") %> </h2> <br>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<% end %>
+</center>

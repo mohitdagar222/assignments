@@ -1,0 +1,14 @@
+<style>
+    .link {
+        text-decoration: none;
+        color: green;
+    }
+</style>
+
+<center>
+<h2> Hey ! this is the home page. </h2> <br/>
+<h3> 
+<%= link_to "show my all songs", "/artists/1/songs", class: :link %> <br/> <br/>
+<%= link_to "create new song", "/artists/1/songs/new", class: :link %>
+</h3>
+</center>

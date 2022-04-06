@@ -1,0 +1,24 @@
+<style>
+    .link {
+        text-decoration: none;
+        color: green;
+    }
+</style>
+<center>
+<h3 style = "color: red;">
+<% if @songs.present? %>
+    <% @songs.each do |song| %>
+        <%= song.name %> &nbsp; =>
+        <%= link_to "edit song name", "/artists/#{song.artist.id}/songs/#{song.id}/edit", class: :link %> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <% if song.lyric.present? %>
+            <%= link_to "view lyrics", "/artists/#{song.artist.id}/songs/#{song.id}/lyrics/#{song.lyric.id}", class: :link %> &nbsp;|&nbsp;
+            <%= link_to "edit lyrics", "/artists/#{song.artist.id}/songs/#{song.id}/lyrics/#{song.lyric.id}/edit", class: :link %>
+        <% else %>
+           <%= link_to "create lyrics", "/artists/#{song.artist.id}/songs/#{song.id}/lyrics/new", class: :link %>
+        <% end %>
+        <%= button_to "delete this song", "/artists/#{song.artist.id}/songs/#{song.id}",method: :delete,  form: { data: { turbo_confirm: "Are you sure?" } } %><br/><br/>
+    <% end %>
+<% end %>
+</h3>
+</center> <br> <br>
+<h2> <%= link_to "go to home page", "/", class: :link %> </h2>
