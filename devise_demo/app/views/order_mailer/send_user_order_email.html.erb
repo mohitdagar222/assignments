@@ -1,0 +1,10 @@
+<h1><%= @user.email %>, Your Order is successfully Received !</h1>
+
+<p>
+  Yout Order is<br>
+  <% @products.each do |product| %>
+    <%= product.product.name %> - <%= product.product.price %><br>
+  <% end %>
+</p>
+
+<h1>Thank You</h1>

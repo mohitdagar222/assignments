@@ -1,51 +1,162 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+}
 
-<section style="background-color: #eee;">
-<div class="row">
+body {
+    background-color: #f0efed;
+}
 
-    <% @products.each do |p|%>
-    <div class="col-sm-6">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-4">
-                <div class="card text-black">
-                <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i>
-                <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp"
-                    class="card-img-top"
-                    alt="Apple Computer"
-                />
-                <div class="card-body">
-                    <div class="text-center">
-                    <h5 class="card-title"><%= p.name %></h5>
-                    
-                    </div>
-                    <div>
-            
-                    <div class="d-flex justify-content-between">
-                        <span>$ <%= p.price %></span>
-                    </div>
-                    </div>
-                    <div class="d-flex justify-content-between total font-weight-bold mt-4">
-                    <span><%= link_to "Add to Cart", "/cart/#{p.id}" %></span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-    <%end%>
+.container {
+    margin: 30px auto
+}
 
 
 
+
+.container .product-item {
+    min-height: 450px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0
+}
+
+.container .product-item .product {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer
+    background-color: white;
+}
+
+.container .product-item .product img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    background-color: maroon;
+}
+
+.container .product-item .product .icons .icon {
+    width: 80px;
+    height: 45px;
+    background-color: #fff;
+    border-radius: 10%;
+    display: flex;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease;
+    transform: rotate(180deg);
+    cursor: pointer
+}
+.container .product-item .product .icons .icon span{
+  color: green;
+}
+.container .product-item .product .icons .icon span:hover {
+  color: white;
+
+}
+
+
+.container .product-item .product .icons .icon:hover {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+
+   
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(3) {
+    transition-delay: 0.2s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(2) {
+    transition-delay: 0.15s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(1) {
+    transition-delay: 0.1s
+}
+
+.container .product-item:hover .product .icons .icon {
+    transform: translateY(-60px)
+}
+
+.container .product-item .tag {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 0 0.4rem;
+}
+
+.container .product-item .title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px
+}
+
+.container .product-item .fa-star {
+    font-size: 0.65rem;
+    color: #ff0000;
+}
+
+.container .product-item .price {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.bg-green {
+    background-color: #208f20 !important;
+    color: #fff;
+}
+
+.bg-black {
+    background-color: #1f1d1d;
+    color: #fff
+}
+
+.bg-red {
+    background-color: #bb3535;
+    color: #fff
+}
+
+</style>
+
+
+
+<div class="container bg-white">
+    <h2>Latest Products</h2>
+   
+      <div class="row">
+      <% @products.each_with_index do |product, index|%>
+          <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+              <div class="product"> <%= image_tag(product.image.url, alt: product.name ) %>
+                  <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                      <%= link_to "/cart/#{product.id}" do %>
+                        <li class="icon"><span>Add Cart</span></li>
+                      <% end %>
+                  </ul>
+              </div>
+              <div class="tag bg-red">Best Selling</div>
+              <div class="title pt-4 pb-1"><%= product.name %></div>
+              <div class="d-flex align-content-center justify-content-center"> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> </div>
+              <div class="price">₹ <%= product.price %></div>
+          </div>
+          <% end %>
+      </div>
+   
 </div>
-
-
-  
-  
-</section>
-
-
-
-

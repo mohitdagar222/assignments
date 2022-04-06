@@ -197,7 +197,7 @@ a:hover {
                             <div class="row"> <%= cp.product.name %> </div>
                         </div>
                         <!--<div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div> -->
-                        <div class="col">&euro; <%= cp.product.price %>
+                        <div class="col">Rs. <%= cp.product.price %>
                         <%= link_to "/cart/destroy/#{cp.id}" do %>
                         <span class="close"> &#10005;</span>
                         <% end %></div>
@@ -214,18 +214,18 @@ a:hover {
             <hr>
             <div class="row">
                 <div class="col" style="padding-left:0;"><%= @cartproducts.count %></div>
-                <div class="col text-right">&euro; <%= total_price %></div>
+                <div class="col text-right">Rs. <%= total_price %></div>
             </div>
             <form>
                 <p>SHIPPING</p> <select>
-                    <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+                    <option class="text-muted">Standard-Delivery- Rs. 25.00</option>
                 </select>
                 <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">&euro; <%= total_price + 5 %></div>
-            </div> <%= link_to 'checkout', "/checkout",  class: "btn checkout" %>
+                <div class="col text-right"> <%= total_price + 25 %></div>
+        </div> <%= link_to 'checkout', "/checkout",  class: "btn checkout" %>
         </div>
     </div>
 </div>

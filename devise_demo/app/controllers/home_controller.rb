@@ -18,6 +18,8 @@ class HomeController < ApplicationController
 
   end
 
+  
+
   def cart 
   end
 

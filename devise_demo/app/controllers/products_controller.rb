@@ -21,9 +21,12 @@ class ProductsController < ApplicationController
   end
 
   def create
+    
     @product = Product.new(product_params)
     @product.admin_id = session[:admin_id]
+    
     if @product.save
+      @product.update(image: params[:product][:image])
       flash[:message] = "Product created Successfully"
       redirect_to "/products"
     else
@@ -33,6 +36,10 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+  end
+
+  def index2
+
   end
 
   def update
