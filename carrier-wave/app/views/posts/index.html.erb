@@ -1,0 +1,35 @@
+<style> 
+  table, th {
+  border: 1px solid;
+  font-size: 25px;
+}
+td {
+  font-size: 25px;
+  padding: 10px;
+}
+</style>
+
+<center>
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+<% order = @order %>
+<table>
+  <tr>
+    <th><%= link_to "Title", "/sort/#{order}" %></th>
+    <th>Links</th>
+  </tr>
+  <div id="posts">
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= link_to "Show this post", post %></td>
+  </tr>
+  <% end %>
+  </div>
+</table>
+
+</center>
+<h2><%= link_to "New post", new_post_path %> </h2>
+
+
