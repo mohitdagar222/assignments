@@ -3,14 +3,14 @@
 <h1>Products</h1>
 
 <div id="products">
+<% cache(@products) do %>
   <% @products.each do |product| %>
-    <% cache(product) do %>
       <%= render product %>
-    <% end %>
     <p>
       <%= link_to "Show this product", product %>
     </p>
   <% end %>
+    <% end %>
 </div>
 
 <%= link_to "New product", new_product_path %>
