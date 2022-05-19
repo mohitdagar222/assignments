@@ -1,0 +1,117 @@
+@import 'application.css';
+
+.logo {
+    width: 150px;
+}
+
+nav .navbar-nav li a {
+    color: orangered !important;
+    font-size: 18px !important;
+}
+
+body {
+    font-family: "pangolin" !important;
+    background: #f7f7f7 !important;
+}
+
+#footer {
+    background-color: aqua;
+    color: red;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    padding: 2px;
+}
+
+h3 {
+    margin-left: 900px;
+    color: red;
+    font-size: 25px;
+}
+
+h2 {
+    color: red;
+}
+
+#form2 {
+    margin: 20px 220px;
+    border-radius: 5px;
+    border: solid black 3px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+#form1 {
+    margin: 20px 310px;
+    border-radius: 5px;
+    border: solid black 3px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+.label {
+    font-size: 22px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    color: black;
+    font-weight: normal;
+}
+
+#admin_name,
+#admin_dob,
+#admin_address,
+#admin_password,
+#admin_password_confirmation,
+#product_name,
+#product_price,
+#admin_email {
+    font-size: 15px;
+    margin-right: 40px;
+    float: right;
+    margin-top: 5px;
+    width: 300px;
+    color: black;
+    border-radius: 4px;
+    padding: 4px;
+    height: 30px;
+    color: red;
+}
+
+#customRange2 {
+    font-size: 15px;
+    margin-right: 420px;
+    float: right;
+    margin-top: 5px;
+    width: 400px;
+
+    border-radius: 4px;
+    padding: 4px;
+    height: 30px;
+}
+
+#search_field {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#t {
+    margin-left: 80px;
+    font-size: 20px;
+    color: rgb(21, 223, 14);
+}
+
+table,
+th,
+td {
+    padding: 10px;
+    border-collapse: collapse;
+    font-size: 20px;
+    color: black;
+}
+
+th {
+    color: green;
+}
