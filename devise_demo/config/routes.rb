@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/admins/login" => "admin#index"
   get "/admins/signup" => "admin#signup"
   post "/admins" => "admin#create" 
+  post "/checkout_informations" => "carts#create" 
 
   get "/cart" => "home#cart"
   get ":id/checkout" => "home#checkout"
