@@ -1,0 +1,29 @@
+<style> 
+  #image {
+    width: 20%;
+    height: 25%;
+  }
+  .main {
+    color: red;
+  }
+
+  .link {
+        text-decoration: none;
+
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+<center>
+<div class = "main">
+<%= image_tag @post.image_url, id: :image %> <br/>
+Title: <%= @post.title %> <br/>
+Body: <%= @post.body %> <br>
+
+  <%= link_to "Edit this post", edit_post_path(@post), class: :link %> |
+  <%= link_to "Back to posts", posts_path, class: :link %> <br/>
+
+  <%= button_to "Destroy this post", @post, method: :delete, class: :link %>
+</div>
+</center>
+

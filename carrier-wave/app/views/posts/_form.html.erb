@@ -1,0 +1,66 @@
+<style>
+  #target img {
+    width: 20%;
+    height: 25%;
+  }
+</style>
+
+
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+  <%= form.hidden_field :image_cache %>
+  <div id="target">
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<script>
+const Element = document.querySelector('#post_image');
+
+Element.addEventListener('change', (event) => {
+  let files = event.target.files;
+  let image = files[0]
+  let reader = new FileReader();
+  reader.onload = function(file) {
+    let img = new Image();
+    console.log(file);
+    img.src = file.target.result;
+    let target = document.querySelector('#target')
+    while (target.firstChild) {
+      target.removeChild(target.firstChild);
+    }
+    document.querySelector('#target').appendChild(img)
+  }
+  reader.readAsDataURL(image);
+  console.log(files);
+});
+
+</script>

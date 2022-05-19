@@ -1,0 +1,12 @@
+<style>
+    .link {
+        text-decoration: none;
+        color: green;
+    }
+</style>
+<center>
+<h3 style = "color: red;">
+    <%= @lyric.content %>
+</h3>
+</center> <br> <br>
+<h2> <%= link_to "go back", "/artists/#{@artist.id}/songs", class: :link %> </h2>
