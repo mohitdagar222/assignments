@@ -1,3 +1,4 @@
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
@@ -36,42 +37,37 @@ body {
     background-color: white;
 }
 
+.container .product-item .product ul a{
+    text-decoration: none;
+    
+}
+
 .container .product-item .product img {
     width: 90%;
     height: 100%;
     object-fit: cover;
+    margin-left: 5%;
     background-color: maroon;
 }
 
 .container .product-item .product .icons .icon {
-    width: 80px;
-    height: 45px;
-    background-color: #fff;
-    border-radius: 10%;
     display: flex;
-    border: 2px solid black;
+    text-decoration: none;
     justify-content: center;
     align-items: center;
     transition: transform 0.6s ease;
     transform: rotate(180deg);
     cursor: pointer
 }
-.container .product-item .product .icons .icon span{
-  color: green;
-}
-.container .product-item .product .icons .icon span:hover {
-  color: white;
-
+.container .product-item .product .icons .icon button{
+    color: maroon;
+    font-weight: 600;   
 }
 
 
-.container .product-item .product .icons .icon:hover {
-    background-color: black;
-    border: 2px solid white;
-    color: white;
 
-   
-}
+
+
 
 .container .product-item .product .icons .icon:nth-last-of-type(3) {
     transition-delay: 0.2s
@@ -138,8 +134,10 @@ body {
 
 
 
+
 <div class="container bg-white">
-    <h2>Latest Products</h2>
+    <br>
+    <h2><center>Latest Products</center></h2>
    
       <div class="row">
       <% @products.each_with_index do |product, index|%>
@@ -147,11 +145,15 @@ body {
               <div class="product"> <%= image_tag(product.image.url, alt: product.name ) %>
                   <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
                       <%= link_to "/cart/#{product.id}" do %>
-                        <li class="icon"><span>Add Cart</span></li>
+                        <li class="icon"><button type="button" class="btn btn-warning">Add Cart</button></li>
                       <% end %>
                   </ul>
               </div>
-              <div class="tag bg-red">Best Selling</div>
+              <% if product.price < 20 %>
+                <div class="tag bg-black">On Discount</div>
+              <% else %>
+                <div class="tag bg-red">Best Selling</div>
+              <% end %>
               <div class="title pt-4 pb-1"><%= product.name %></div>
               <div class="d-flex align-content-center justify-content-center"> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> </div>
               <div class="price">₹ <%= product.price %></div>
@@ -160,3 +162,21 @@ body {
       </div>
    
 </div>
+
+<div id="maitre-widget"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
