@@ -1,4 +1,4 @@
-<h3><%= link_to "Register", "/admins/signup" %> | <%= link_to "Login", "/" %></h3> 
+<h3><%= link_to "Register", "/admins/signup" %> | <%= link_to "Login", "/admins/login" %></h3> 
 <h2> <%= flash[:message] %> <% flash[:message] = nil %></h2>
 <div style = "margin-bottom: 160px;">
 <%= form_with(url: "/admins/login", method: :get, id: "form1") do |form| %>

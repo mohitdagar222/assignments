@@ -1,4 +1,4 @@
-<h3><%= link_to "Create Product", "/products/create" %> | <%= link_to "Logout", "/logout" %></h3> 
+<h3><%= link_to "Create Product", "/products/create" %> | <%= link_to "Logout", "/logout" %> | <%= link_to "Manage Orders", "/admin/orders" %></h3> 
 <h2> <%= flash[:message] %></h2>
 
 <%= form_with(url: "/products/index", method: :get) do |form| %>

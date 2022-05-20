@@ -2,15 +2,24 @@ Rails.application.routes.draw do
   get 'cartproducts/index'
   get 'products/edit'
   get 'products/index'
-
+  get 'index' => 'home#index'
   get 'products/new'
   get 'admin/index'
+  get 'admin/orders'
   root "home#index"
   get '/cart/:id' => 'cartproducts#create'
   get '/cart/destroy/:id' => 'cartproducts#destroy' 
+  get "/admins/show_order/:id" => "admin#show_order"
+  get "/admins/:id/approve" => "admin#approve"
+  get "/admins/:id/decline" => "admin#decline"
+  get '/cart/add/:id' => 'cartproducts#add'
   get 'carts/index' => 'carts#index'
   get '/checkout' => 'carts#checkout'
   get '/empty' => 'carts#emptycart'
+  devise_scope :user do
+    get "/users" => "users/registrations#new"
+    get "/users/password" => "users/passwords#new"
+  end
   devise_for :users, controllers: {
                        sessions: "users/sessions",
                        passwords: "users/passwords",

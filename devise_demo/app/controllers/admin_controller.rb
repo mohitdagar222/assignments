@@ -12,6 +12,30 @@ class AdminController < ApplicationController
     end
   end
 
+  def approve
+    @cart = Cart.find_by(id: params[:id])
+    @cart.cartproducts.where(order_status: "pending").update_all(order_status: "approved")
+    flash[:message] = "Orders Approved Successfully" 
+    redirect_to "/admin/orders"
+  end
+
+  def decline
+    @cart = Cart.find_by(id: params[:id])
+    @cart.cartproducts.where(order_status: "pending").update_all(order_status: "decline")
+    flash[:message] = "Orders Declined Successfully" 
+    redirect_to "/admin/orders"
+  end
+
+  def show_order
+    @cart = Cart.find_by(id: params[:id])
+    @cartproducts = @cart.cartproducts.where(order_status: "pending")
+  end
+
+  def orders
+    cart_ids = Cartproduct.where(order_status: "pending").pluck(:cart_id).uniq
+    @carts = Cart.where(id: cart_ids)
+  end
+
   def signup
     @admin = Admin.new
   end

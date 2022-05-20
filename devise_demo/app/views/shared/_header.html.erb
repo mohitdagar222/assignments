@@ -18,14 +18,12 @@
            <%= link_to "Sign In", new_user_session_path, class: "nav-link active" %> </li>
           <% end %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_with(url: "/index", method: :get, class: "d-flex") do |form| %>
+        <%= form.text_field(:product_name, id: :product_search_field, class: "form-control me-2", placeholder: "Search", "aria-label": "Search") %>
+        <%= form.submit("Search", :class => "btn btn-outline-success") %>
+      <% end %>
     </div>
   </div>
 </nav>
+
