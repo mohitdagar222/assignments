@@ -1,0 +1,24 @@
+<%= flash[:message] %>
+
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">View More</th>
+      <th scope="col">Confirm</th>
+      <th scope="col">Decline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @carts.each do |cart| %>
+        <tr>
+            <td><%= cart.user.name %></td>
+            <td><%= cart.user.email %></td>
+            <td><%= link_to "View More", "/admins/show_order/#{cart.id}"%></td>
+            <td><%= link_to "Approve", "/admins/#{cart.id}/approve"%></td>
+            <td><%= link_to "Decline", "/admins/#{cart.id}/decline"%></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
