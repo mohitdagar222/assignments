@@ -145,8 +145,10 @@
                       <% end %>
                   </ul>
               </div>
-              <% if product.price < 20 %>
+              <% if product.price < 1500 %>
                 <div class="tag bg-black">On Discount</div>
+              <% elsif product.price < 2000 %>
+                <div class="tag bg-green">Heavy Discount</div>
               <% else %>
                 <div class="tag bg-red">Best Selling</div>
               <% end %>

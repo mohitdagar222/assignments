@@ -4,3 +4,88 @@
 </p>
 <input type="button" id="routebtn" value="route" />
 
+<script>
+
+document.addEventListener("DOMContentLoaded", initMap());
+
+let map;
+
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        zoom: 5,
+        center: { lat: 28.0339, lng: 1.6596 }
+    });   
+            var n = {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+            [
+                [
+                -3.779296875,
+                31.952162238024975
+                ],
+                [
+                -1.9335937499999998,
+                31.952162238024975
+                ],
+                [
+                -1.9335937499999998,
+                33.578014746143985
+                ],
+                [
+                -3.779296875,
+                33.578014746143985
+                ],
+                [
+                -3.779296875,
+                31.952162238024975
+                ]
+            ]
+            ]
+        }
+        }
+        var m = {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+            [
+                [
+                -1.5380859375,
+                39.470125122358176
+                ],
+                [
+                -0.5712890625,
+                39.470125122358176
+                ],
+                [
+                -0.5712890625,
+                40.04443758460856
+                ],
+                [
+                -1.5380859375,
+                40.04443758460856
+                ],
+                [
+                -1.5380859375,
+                39.470125122358176
+                ]
+            ]
+            ]
+        }
+        }
+        var wards =  {
+        "type": "FeatureCollection",
+        "features": [
+             m,n 
+             ]
+        }
+        
+    map.data.addGeoJson(wards)
+
+}
+
+</script>

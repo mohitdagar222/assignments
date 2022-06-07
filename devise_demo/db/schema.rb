@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_201632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "order_status", default: "added"
     t.index ["cart_id"], name: "index_cartproducts_on_cart_id"
     t.index ["product_id"], name: "index_cartproducts_on_product_id"
   end
@@ -47,6 +48,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "checkout_informations", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "address"
+    t.string "address_2"
+    t.string "country"
+    t.string "state"
+    t.integer "pin_code"
+    t.bigint "cart_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_checkout_informations_on_cart_id"
+    t.index ["user_id"], name: "index_checkout_informations_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -90,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,5 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_070836) do
   add_foreign_key "cartproducts", "carts"
   add_foreign_key "cartproducts", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "checkout_informations", "carts"
+  add_foreign_key "checkout_informations", "users"
   add_foreign_key "products", "admins"
 end
