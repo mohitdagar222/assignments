@@ -11,11 +11,10 @@ class Scraper
 		doc = Nokogiri::HTML(html)
 		titles = doc.css(".indicate-hover")
 		# binding.pry
-		titles.each do |title|
-			puts title.text.strip
-		end
+		# titles.each do |title|
+		# 	puts title.text.strip
+		# end
 		return titles
 	end
-	
 end
-Scraper.scrape_details
+# Scraper.scrape_details
