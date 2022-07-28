@@ -1,0 +1,37 @@
+<h1>New post</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+
+<div>
+  <%= link_to "Back to posts", posts_path %>
+</div>
+
+
+<script>
+$(function() {
+  if ($("#new_post").length > 0) {
+    setTimeout(autoSavePost, 10000); 
+  }    
+});
+
+function autoSavePost() {
+  var data = $("#new_post").serialize()
+  if (data.length !== 0){
+    $.ajax({
+      url: "/posts/autosave",
+      type: "patch",
+      data: data,
+      dataType: "json",
+      success: function(data) {
+        $("#post_id").val(data.id)
+      },
+      error: function (){
+        window.alert("something wrong!");
+      }
+    });
+    setTimeout(autoSavePost, 10000);
+  }
+}
+</script>
