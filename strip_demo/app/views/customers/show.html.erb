@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+<%= @customer.name %><br>
+<%= @customer.email %><br>
+<%= @customer.contact %><br>
+<%= @customer.stripe_customer_id %><br>
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
