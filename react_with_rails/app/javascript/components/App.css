@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+    height: 800px; /* Set the height of the container */
+  }
+  
+  .MuiPagination-ul {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  .allitems{
+    bottom: 10%;
+    left: 50%;
+    margin-left: 800px;
+    margin-top: 20px;
+  }
