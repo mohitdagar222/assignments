@@ -1,0 +1,31 @@
+<h1>Multi-Form Page</h1>
+
+<%= form_tag(process_forms_path) do %>
+  <h2>Form 1</h2>
+  <label for="form1_name">Name:</label>
+  <%= text_field_tag 'form1_name' %><br>
+  <label for="form1_email">Email:</label>
+  <%= email_field_tag 'form1_email' %><br>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<%= form_tag(process_forms_path) do %>
+
+  <h2>Form 2</h2>
+  <label for="form2_name">Name:</label>
+  <%= text_field_tag 'form2_name' %><br>
+  <label for="form2_email">Email:</label>
+  <%= email_field_tag 'form2_email' %><br>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<%= form_tag(process_forms_path) do %>
+
+  <h2>Form 3</h2>
+  <label for="form3_name">Name:</label>
+  <%= text_field_tag 'form3_name' %><br>
+  <label for="form3_email">Email:</label>
+  <%= email_field_tag 'form3_email' %><br>
+
+  <%= submit_tag 'Submit' %>
+<% end %>
